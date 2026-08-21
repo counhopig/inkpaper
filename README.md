@@ -38,6 +38,9 @@ images.
   to open a week view listing exactly what's due.
 - **Todos with intent** — importance (low/med/high), due dates, repeat
   schedules, and a one-shot reminder for high-priority items.
+- **Notification inbox** — external sources (webhooks, CI, agents) push
+  messages to a device via the server; the device shows an unread badge and
+  a full-screen alert for `alert`-kind items, and marks them read.
 - **Self-hosted, personal-scale server** — one shared admin token, per
   device tokens, ETag caching, embedded admin console in a single binary.
 - **Configure over USB or BLE** — no on-device text input; Wi-Fi, server
@@ -55,9 +58,9 @@ Every screen below is rendered directly by the firmware's drawing code.
 | --- | --- | --- |
 | ![Home](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/home.png) | ![Calendar](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/calendar.png) | ![Week view](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/week-view.png) |
 
-| Alarms | Todos |
-| --- | --- |
-| ![Alarms](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/alarms.png) | ![Todos](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/todos.png) |
+| Alarms | Todos | Inbox |
+| --- | --- | --- |
+| ![Alarms](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/alarms.png) | ![Todos](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/todos.png) | ![Inbox](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/inbox.png) |
 
 ## Repositories
 
