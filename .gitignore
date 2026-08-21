@@ -8,5 +8,6 @@
 /.claude/
 /.omo/
 .DS_Store
-INKPAPER_ENGINEERING_HISTORY.md
+*_HISTORY.md
+*_PLAN.md
 *.code-workspace
