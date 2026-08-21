@@ -3,6 +3,7 @@
 /inkpaper/
 /inkpaper-server/
 /inkpaper-desktop/
+/inkpaper-mcp/
 
 # Internal / tooling files not meant for the public umbrella
 /.claude/
