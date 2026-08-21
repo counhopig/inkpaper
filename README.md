@@ -41,6 +41,10 @@ images.
 - **Notification inbox** — external sources (webhooks, CI, agents) push
   messages to a device via the server; the device shows an unread badge and
   a full-screen alert for `alert`-kind items, and marks them read.
+- **Agent-ready notifications** — an MCP server exposes the channel
+  webhook, so opencode, Claude Code, Codex or any script can push a
+  notification to the device (high-priority items ring the URGENT
+  reminder within 30 s).
 - **Self-hosted, personal-scale server** — one shared admin token, per
   device tokens, ETag caching, embedded admin console in a single binary.
 - **Configure over USB or BLE** — no on-device text input; Wi-Fi, server
@@ -72,6 +76,7 @@ entry point.
 | [**inkpaper-firmware**](https://github.com/counhopig/inkpaper-firmware) | The Note 4 firmware — calendar, alarms, todos, sync, USB/BLE config | Rust · ESP-IDF · SSD2683 EPD · PCF8563 RTC |
 | [**inkpaper-server**](https://github.com/counhopig/inkpaper-server) | Personal cloud backend — per-device alarms/todos, sync endpoint, admin UI | Rust · axum · SQLite · Vue 3 |
 | [**inkpaper-desktop**](https://github.com/counhopig/inkpaper-desktop) | PC tool — configure the device, author content, view logs | Tauri 2 · Vue 3 · TypeScript |
+| [**inkpaper-mcp**](https://github.com/counhopig/inkpaper-mcp) | MCP server — any agent can push notifications to the device | TypeScript · Bun · MCP |
 
 ## Architecture
 
