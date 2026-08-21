@@ -1,16 +1,16 @@
 <div align="center">
 
-# Inkpaper
+# Inkwash
 
 **A calm e-ink calendar, alarms & todos system for the Zectrix Note 4.**
 
 Offline-first. Open source. Built for a 4.2″ e-paper ESP32-S3 notebook.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Target](https://img.shields.io/badge/Target-Zectrix%20Note%204-111111.svg)](https://github.com/counhopig/inkpaper-firmware)
-[![Firmware](https://img.shields.io/badge/Firmware-Rust%20%2F%20ESP--IDF-orange.svg)](https://github.com/counhopig/inkpaper-firmware)
-[![Server](https://img.shields.io/badge/Server-Rust%20%2F%20axum%20%2F%20SQLite-green.svg)](https://github.com/counhopig/inkpaper-server)
-[![Desktop](https://img.shields.io/badge/Desktop-Tauri%202%20%2F%20Vue%203-42b883.svg)](https://github.com/counhopig/inkpaper-desktop)
+[![Target](https://img.shields.io/badge/Target-Zectrix%20Note%204-111111.svg)](https://github.com/counhopig/inkwash-firmware)
+[![Firmware](https://img.shields.io/badge/Firmware-Rust%20%2F%20ESP--IDF-orange.svg)](https://github.com/counhopig/inkwash-firmware)
+[![Server](https://img.shields.io/badge/Server-Rust%20%2F%20axum%20%2F%20SQLite-green.svg)](https://github.com/counhopig/inkwash-server)
+[![Desktop](https://img.shields.io/badge/Desktop-Tauri%202%20%2F%20Vue%203-42b883.svg)](https://github.com/counhopig/inkwash-desktop)
 
 </div>
 
@@ -19,7 +19,7 @@ Offline-first. Open source. Built for a 4.2″ e-paper ESP32-S3 notebook.
 ## Why
 
 The Note 4 is a notebook that's usually left on a desk, plugged in, and
-ignored. Inkpaper turns it into a device you *consult*: a clock, a
+ignored. Inkwash turns it into a device you *consult*: a clock, a
 monthly calendar, and an alarms/todos board — all readable at a glance
 on e-paper, all working **without a network**.
 
@@ -60,11 +60,11 @@ Every screen below is rendered directly by the firmware's drawing code.
 
 | Home | Calendar | Week view |
 | --- | --- | --- |
-| ![Home](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/home.png) | ![Calendar](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/calendar.png) | ![Week view](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/week-view.png) |
+| ![Home](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/home.png) | ![Calendar](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/calendar.png) | ![Week view](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/week-view.png) |
 
 | Alarms | Todos | Inbox |
 | --- | --- | --- |
-| ![Alarms](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/alarms.png) | ![Todos](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/todos.png) | ![Inbox](https://raw.githubusercontent.com/counhopig/inkpaper-firmware/main/docs/screenshots/inbox.png) |
+| ![Alarms](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/alarms.png) | ![Todos](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/todos.png) | ![Inbox](https://raw.githubusercontent.com/counhopig/inkwash-firmware/main/docs/screenshots/inbox.png) |
 
 ## Repositories
 
@@ -73,18 +73,18 @@ entry point.
 
 | Repo | What it is | Stack |
 | --- | --- | --- |
-| [**inkpaper-firmware**](https://github.com/counhopig/inkpaper-firmware) | The Note 4 firmware — calendar, alarms, todos, sync, USB/BLE config | Rust · ESP-IDF · SSD2683 EPD · PCF8563 RTC |
-| [**inkpaper-server**](https://github.com/counhopig/inkpaper-server) | Personal cloud backend — per-device alarms/todos, sync endpoint, admin UI | Rust · axum · SQLite · Vue 3 |
-| [**inkpaper-desktop**](https://github.com/counhopig/inkpaper-desktop) | PC tool — configure the device, author content, view logs | Tauri 2 · Vue 3 · TypeScript |
-| [**inkpaper-mcp**](https://github.com/counhopig/inkpaper-mcp) | MCP server — any agent can push notifications to the device | TypeScript · Bun · MCP |
+| [**inkwash-firmware**](https://github.com/counhopig/inkwash-firmware) | The Note 4 firmware — calendar, alarms, todos, sync, USB/BLE config | Rust · ESP-IDF · SSD2683 EPD · PCF8563 RTC |
+| [**inkwash-server**](https://github.com/counhopig/inkwash-server) | Personal cloud backend — per-device alarms/todos, sync endpoint, admin UI | Rust · axum · SQLite · Vue 3 |
+| [**inkwash-desktop**](https://github.com/counhopig/inkwash-desktop) | PC tool — configure the device, author content, view logs | Tauri 2 · Vue 3 · TypeScript |
+| [**inkwash-mcp**](https://github.com/counhopig/inkwash-mcp) | MCP server — any agent can push notifications to the device | TypeScript · Bun · MCP |
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    D["inkpaper-firmware<br/>Zectrix Note 4"] -->|"HTTPS POST /api/sync (done/enabled flags)"| S["inkpaper-server<br/>Rust + axum + SQLite"]
+    D["inkwash-firmware<br/>Zectrix Note 4"] -->|"HTTPS POST /api/sync (done/enabled flags)"| S["inkwash-server<br/>Rust + axum + SQLite"]
     S -->|"JSON alarms + todos"| D
-    T["inkpaper-desktop<br/>Tauri 2 + Vue 3"] -->|"USB serial / BLE (set_wifi, set_server, sync_now)"| D
+    T["inkwash-desktop<br/>Tauri 2 + Vue 3"] -->|"USB serial / BLE (set_wifi, set_server, sync_now)"| D
     T -->|"HTTPS admin API (ADMIN_TOKEN)"| S
 ```
 
@@ -97,32 +97,32 @@ offline.
 
 ```bash
 # 1. Server (backend + embedded admin console)
-git clone https://github.com/counhopig/inkpaper-server
-cd inkpaper-server && ./scripts/start.sh
+git clone https://github.com/counhopig/inkwash-server
+cd inkwash-server && ./scripts/start.sh
 
 # 2. Desktop (register devices, author content, configure the device)
-git clone https://github.com/counhopig/inkpaper-desktop
-cd inkpaper-desktop && npm install && npm run tauri dev
+git clone https://github.com/counhopig/inkwash-desktop
+cd inkwash-desktop && npm install && npm run tauri dev
 
 # 3. Firmware (needs an ESP-IDF toolchain; see its README)
-git clone https://github.com/counhopig/inkpaper-firmware
-cd inkpaper-firmware && ./scripts/build-rust.sh --release
+git clone https://github.com/counhopig/inkwash-firmware
+cd inkwash-firmware && ./scripts/build-rust.sh --release
 ```
 
 ## Documentation
 
 | Topic | Where |
 | --- | --- |
-| Firmware build / flash / hardware | [`inkpaper-firmware` docs](https://github.com/counhopig/inkpaper-firmware/tree/main/docs) |
-| USB/BLE control protocol | [`control-protocol.md`](https://github.com/counhopig/inkpaper-firmware/blob/main/docs/control-protocol.md) |
-| Sync API contract | [`sync-api.md`](https://github.com/counhopig/inkpaper-firmware/blob/main/docs/sync-api.md) |
-| Development guide | [`development-guide.md`](https://github.com/counhopig/inkpaper-firmware/blob/main/docs/development-guide.md) |
+| Firmware build / flash / hardware | [`inkwash-firmware` docs](https://github.com/counhopig/inkwash-firmware/tree/main/docs) |
+| USB/BLE control protocol | [`control-protocol.md`](https://github.com/counhopig/inkwash-firmware/blob/main/docs/control-protocol.md) |
+| Sync API contract | [`sync-api.md`](https://github.com/counhopig/inkwash-firmware/blob/main/docs/sync-api.md) |
+| Development guide | [`development-guide.md`](https://github.com/counhopig/inkwash-firmware/blob/main/docs/development-guide.md) |
 
 ## Contributing
 
 Found a bug or have an idea? Open an issue in the relevant repository —
-firmware logic in `inkpaper-firmware`, backend in `inkpaper-server`, UI
-in `inkpaper-desktop`. Pull requests are welcome; please keep changes
+firmware logic in `inkwash-firmware`, backend in `inkwash-server`, UI
+in `inkwash-desktop`. Pull requests are welcome; please keep changes
 focused and match the existing style.
 
 > **Hardware note:** the firmware targets the black-and-white Zectrix

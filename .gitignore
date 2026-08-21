@@ -1,9 +1,9 @@
 # Sibling repositories (each is its own git repo - this umbrella only
 # carries the project README, LICENSE and this file)
-/inkpaper/
-/inkpaper-server/
-/inkpaper-desktop/
-/inkpaper-mcp/
+/inkwash/
+/inkwash-server/
+/inkwash-desktop/
+/inkwash-mcp/
 
 # Internal / tooling files not meant for the public umbrella
 /.claude/
