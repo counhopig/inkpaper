@@ -12,3 +12,6 @@
 *_HISTORY.md
 *_PLAN.md
 *.code-workspace
+
+# Sibling firmware repo (added 2026-08)
+/inkwash-firmware/
